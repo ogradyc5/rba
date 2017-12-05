@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :profiles
   devise_for :members
   get 'home/index'
 
@@ -23,6 +24,9 @@ Rails.application.routes.draw do
   #       get 'short'
   #       post 'toggle'
   #     end
+  resources :members do
+    resources :profiles
+  end 
   #
   #     collection do
   #       get 'sold'
