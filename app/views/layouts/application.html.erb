@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
 <html>
 <head>
   <title>RbApp</title>
@@ -7,6 +9,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  
+  <% unless notice.blank? %>
+    <%= notice %>
+  <% end %>
+  <% unless alert.blank? %>
+    <%= alert %>
+  <% end %>
 
 <%= yield %>
 

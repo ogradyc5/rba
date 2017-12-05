@@ -1,4 +1,4 @@
-require 'rails_helper'
+require 'test_helper'
 
 feature "visiting the homepage" do
     scenario "the visitor sees the bicycle shop name" do
