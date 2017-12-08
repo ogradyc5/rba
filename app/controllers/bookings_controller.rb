@@ -9,18 +9,18 @@ class BookingsController < ApplicationController
   end
 
   def new
-    #@booking = Booking.new(store_bike_id: @store_bike)   #(id: params.permit(:store_id, :bike_id))      #(store_bike_id: :bike_id, :scope => [:store_id] )    #(store_id: store.id, bike_id: bike.id )
+    @booking = Booking.new(id: @store_bike)   #(id: params.permit(:store_id, :bike_id))      #(store_bike_id: :bike_id, :scope => [:store_id] )    #(store_id: store.id, bike_id: bike.id )
    # @booking = Booking.new(store_bike_id: @store_bike)
    # @store_bike = StoreBike.find(params[:bike_id, :scope => [:store_id] ])
     #@booking = @store_bike.bookings.build
-    @store_bike = StoreBike.find(params[:store_bike_id])
-    @booking = @store_bike.bookings.new
+    #@store_bike = StoreBike.find(params[:store_bike_id])
+    #@booking = @store_bike.bookings.new
   end
 
   def create
     @booking =  Booking.new(params[:booking].permit(:store_bike_id, :start_time, :length))
     #@booking.store_bike = Booking.find_by_id(params[:id])
-    @booking.store_bike_id = @store_bike
+    @booking.id = @store_bike
     if @booking.save
       redirect_to store_bike_bookings_path(@store_bike, method: :get)
     else

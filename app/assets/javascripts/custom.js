@@ -11,8 +11,8 @@ var calendar = function(){
 
     // page is now ready, initialize the calendar...
 
-    var current_resource = function(){
-    	return window.location.href.match(/resources\/(\d+)\/bookings/)[1];
+    var current_store_bike = function(){
+    	return window.location.href.match(/store_bikes\/(\d+)\/bookings/)[1];
     };
 
     var today_or_later = function(){
@@ -33,7 +33,7 @@ var calendar = function(){
 			},
 
 			eventSources: [{  
-    		url: '/resources/'+current_resource()+'/bookings/',  
+    		url: '/store_bikes/'+current_store_bike()+'/bookings/',  
    		}],
 
    		selectable: {
@@ -50,7 +50,7 @@ var calendar = function(){
 
         function updateEvent(booking) {
               $.ajax(
-                '/resources/'+current_resource()+'/bookings/'+booking.id,
+                '/store_bikes/'+current_store_bike()+'/bookings/'+booking.id,
                 { 'type': 'PATCH',
 
                   data: { booking: { 
@@ -71,7 +71,7 @@ var calendar = function(){
 
         function updateEvent(booking) {
               $.ajax(
-                '/resources/'+current_resource()+'/bookings/'+booking.id,
+                '/store_bikes/'+current_store_bike()+'/bookings/'+booking.id,
                 { 'type': 'PATCH',
 
                   data: { booking: { 
@@ -110,7 +110,7 @@ var calendar = function(){
           );
 
           jQuery.post(
-            '/resources/'+current_resource()+'/bookings',
+            '/store_bikes/'+current_store_bike()+'/bookings',
             
             { booking: {
               start_time: start,
