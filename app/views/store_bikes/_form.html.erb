@@ -1,0 +1,20 @@
+<%= simple_form_for(@store_bike) do |f| %>
+  <!--%= f.error_notification %-->
+   <%= render 'errors' %> 
+
+  <div class="form-inputs">
+    <%= f.association :store %>
+    <%= f.association :bike %>
+  </div>
+  
+  <!--%= content_tag_for :tr, @store_bikes do |sb| %>
+
+        <!--%= sb.store.try(:name) %--><!--/div-->
+        <!--%= sb.bike.try(:id) %--><!--/div>
+
+  <!--% end %-->
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

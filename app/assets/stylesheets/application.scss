@@ -12,4 +12,11 @@
  *
  *= require_tree .
  *= require_self
+ *= require commontator/application
+ *= require material_icons
  */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "materialize";
+@import "materialize/extras/nouislider";

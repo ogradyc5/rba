@@ -1,5 +1,6 @@
 class ProfilesController < ApplicationController
   before_action :set_profile, only: [:show, :edit, :update, :destroy]
+  
   before_action :set_member
   before_action :authenticate_member!
   @member.build_profile
@@ -84,6 +85,6 @@ class ProfilesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def profile_params
-      params.require(:profile).permit(:bio, :member_id)
+      params.require(:profile).permit(:bio, :member_id, :profile_pic)
     end
 end

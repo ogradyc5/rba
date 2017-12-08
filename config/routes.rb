@@ -1,8 +1,24 @@
 Rails.application.routes.draw do
+  resources :store_bicycles
+  resources :store_bikes
+  resources :resources do
+	  resources :bookings
+	end
+  resources :store_bikes do
+	  resources :bookings
+	end
+  resources :store_bikes do
+	  resources :bookings
+	end
+  resources :bikes
+  resources :resources do
+	  resources :bookings
+	end
+  resources :posts
   resources :profiles
   devise_for :members
   get 'home/index'
-
+  mount Commontator::Engine => '/commontator'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

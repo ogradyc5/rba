@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Store Bikes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Store</th>
+      <th>Bike</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @store_bikes.each do |store_bike| %>
+      <tr>
+        <td><%= store_bike.bike.name %></td>
+        <td><%= store_bike.store.name %></td>
+        <td><%= link_to "Show all bookings", store_bike_bookings_path(store_bike) %></td>
+        <td><%= link_to "Delete", store_bike_path(store_bike), data: { confirm: 'Are you sure?' }, method: :delete %></td>
+        <td><%= link_to "Edit", edit_store_bike_path(store_bike) %></td>
+        <td><%= link_to "Add booking", new_store_bike_booking_path(store_bike) %></td>
+        <!--td><!--%= link_to 'Show', store_bike %></td>
+        <td><!--%= link_to 'Edit', edit_store_bike_path(store_bike) %></td>
+        <td><!--%= link_to 'Destroy', store_bike, method: :delete, data: { confirm: 'Are you sure?' } %></td-->
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Store bike', new_store_bike_path %>

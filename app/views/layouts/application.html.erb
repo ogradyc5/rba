@@ -1,20 +1,20 @@
 <!DOCTYPE html>
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+<!--p class="notice"><#%= notice %></p>
+<p class="alert"><#%= alert %></p-->
 <html>
 <head>
-  <title>RbApp</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <link href="https://fonts.googleapis.com/icon?family=Material\Icons" rel="stylesheet">
+  <title>Rent a Bike App</title>
   <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %> 
+  
 </head>
+
+<%= render 'layouts/header' %>
+
+<div class="container">
 <body>
-  <% if member_signed_in? %>
-    <%= render 'shared/logged_in_header' %>
-  <% else %>
-    <%= render 'shared/logged_out_header' %>
-  <% end %>
-    
   <% unless notice.blank? %>
       <%= notice %>
   <% end %>
@@ -25,4 +25,5 @@
 <%= yield %>
 
 </body>
+</div>
 </html>
